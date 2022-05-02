@@ -25,8 +25,6 @@ def confusion_matrix_cell(true_class, pred_class):
         true_mask = K.equal(true_class_label, true_class)
         mask = tf.logical_and(pred_mask, true_mask)
 
-        # Get the total number of occurences
-        occurrences = K.sum(K.cast(mask, 'int32'), axis=0)
-        return occurrences
+        return K.sum(K.cast(mask, 'int32'), axis=0)
 
     return confusion

@@ -46,8 +46,7 @@ class Hdf5Dataset(Dataset):
         return self.entries
 
     def __iter__(self):
-        for entry in self.ds:
-            yield entry
+        yield from self.ds
 
     def __getitem__(self, item):
         return self.ds[item]
